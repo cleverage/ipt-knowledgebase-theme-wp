@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Knowledge Base Theme for Clever Planet\n"
 "POT-Creation-Date: 2013-11-05 21:39+0530\n"
-"PO-Revision-Date: 2014-06-04 11:18+0100\n"
+"PO-Revision-Date: 2014-06-04 12:17+0100\n"
 "Last-Translator: Aurélien Masfrand <amasfrand@clever-age.com>\n"
 "Language-Team: ipanelthemes.com <ipanelthemes@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgid ""
 "&nbsp;<a href=\"%3$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 "Tags associés <i class=\"glyphicon glyphicon-tags\"></i>&nbsp;&nbsp;%2$s."
-"<br />Bookmarkez la page avec son <i class=\"glyphicon glyphicon-bookmark"
+"<br />Bookmarker la page avec son <i class=\"glyphicon glyphicon-bookmark"
 "\"></i>&nbsp;&nbsp;<a href=\"%3$s\" rel=\"bookmark\">lien permanent</a>."
 
 #: ../content-single.php:39
@@ -456,27 +456,30 @@ msgstr "Modifications &ldquo;%s&rdquo;"
 #: ../bbpress/form-forum.php:37
 #, php-format
 msgid "Create New Forum in &ldquo;%s&rdquo;"
-msgstr ""
+msgstr "Créer un nouveau Forum dans &ldquo;%s&rdquo;"
 
 #: ../bbpress/form-forum.php:37
 msgid "Create New Forum"
-msgstr ""
+msgstr "Créer un nouveau forum"
 
 #: ../bbpress/form-forum.php:47
 msgid ""
 "This forum is closed to new content, however your account still allows you "
 "to do so."
 msgstr ""
+"This forum is closed to new content, however your account still allows you "
+"to do so.Ce forum est fermé à tout nouveau contenu, mais votre accès vous "
+"permet toujours de le faire"
 
 #: ../bbpress/form-forum.php:55 ../bbpress/form-reply.php:34
 #: ../bbpress/form-topic.php:44
 msgid "Your account has the ability to post unrestricted HTML content."
-msgstr ""
+msgstr "Votre compte a la capacité d'envoyer du contenu HTML sans restriction."
 
 #: ../bbpress/form-forum.php:67
 #, php-format
 msgid "Forum Name (Maximum Length: %d):"
-msgstr ""
+msgstr "Nom du Forum (longueur maximum : %d) :"
 
 #: ../bbpress/form-forum.php:82 ../bbpress/form-reply.php:50
 #: ../bbpress/form-topic.php:76
@@ -487,23 +490,23 @@ msgstr ""
 
 #: ../bbpress/form-forum.php:91
 msgid "Forum Type:"
-msgstr ""
+msgstr "Type de Forum :"
 
 #: ../bbpress/form-forum.php:100
 msgid "Status:"
-msgstr ""
+msgstr "Statut :"
 
 #: ../bbpress/form-forum.php:109
 msgid "Visibility:"
-msgstr ""
+msgstr "Visibilité :"
 
 #: ../bbpress/form-forum.php:118
 msgid "Parent Forum:"
-msgstr ""
+msgstr "Forum parent :"
 
 #: ../bbpress/form-forum.php:123
 msgid "(No Parent)"
-msgstr ""
+msgstr "(pas de parent)"
 
 #: ../bbpress/form-forum.php:138 ../bbpress/form-reply-move.php:62
 #: ../bbpress/form-reply.php:110 ../bbpress/form-topic-merge.php:71
@@ -515,15 +518,15 @@ msgstr "Envoyé"
 #: ../bbpress/form-forum.php:161
 #, php-format
 msgid "The forum &#8216;%s&#8217; is closed to new content."
-msgstr ""
+msgstr "Le forum &#8216;%s&#8217; est fermé à tout nouveau contenu."
 
 #: ../bbpress/form-forum.php:169
 msgid "You cannot create new forums."
-msgstr ""
+msgstr "Vous ne pouvez pas créer de nouveaux forums."
 
 #: ../bbpress/form-forum.php:169
 msgid "You must be logged in to create new forums."
-msgstr ""
+msgstr "Vous devez être connecté pour créer de nouveaux forums."
 
 #: ../bbpress/form-protected.php:14
 msgid "Protected"
@@ -539,12 +542,16 @@ msgid ""
 "You can either make this reply a new topic with a new title, or merge it "
 "into an existing topic."
 msgstr ""
+"Vous pouvez soit faire de cette réponse un nouveau sujet avec un nouveau "
+"titre, ou le fusionner dans un sujet existant."
 
 #: ../bbpress/form-reply-move.php:25
 msgid ""
 "If you choose an existing topic, replies will be ordered by the time and "
 "date they were created."
 msgstr ""
+"Si vous choisissez un sujet existant, les réponses seront triées par la date "
+"de leur création."
 
 #: ../bbpress/form-reply-move.php:28
 msgid "Move Method"
@@ -571,15 +578,15 @@ msgstr ""
 #: ../bbpress/form-reply-move.php:58 ../bbpress/form-topic-merge.php:67
 #: ../bbpress/form-topic-split.php:79
 msgid "<strong>WARNING:</strong> This process cannot be undone."
-msgstr ""
+msgstr "<strong>ATTENTION :</strong> Cette action ne pourra pas être annulé."
 
 #: ../bbpress/form-reply-move.php:74
 msgid "You do not have the permissions to edit this reply!"
-msgstr ""
+msgstr "Vous n'avez pas les accès suffisants pour éditer une réponse !"
 
 #: ../bbpress/form-reply-move.php:74
 msgid "You cannot edit this reply."
-msgstr ""
+msgstr "Vous ne pouvez pas éditer cette réponse."
 
 #: ../bbpress/form-reply.php:23
 #, php-format
@@ -594,7 +601,7 @@ msgstr ""
 
 #: ../bbpress/form-reply.php:59
 msgid "Tags:"
-msgstr ""
+msgstr "Tags :"
 
 #: ../bbpress/form-reply.php:77 ../bbpress/form-topic.php:142
 msgid "Notify the author of follow-up replies via email"
@@ -606,7 +613,7 @@ msgstr ""
 
 #: ../bbpress/form-reply.php:93 ../bbpress/form-topic.php:155
 msgid "Keep a log of this edit:"
-msgstr ""
+msgstr "Indiquer un commentaire pour cette modification :"
 
 #: ../bbpress/form-reply.php:97 ../bbpress/form-reply.php:98
 #: ../bbpress/form-topic.php:159
@@ -778,7 +785,7 @@ msgstr ""
 
 #: ../bbpress/form-topic-tag.php:59 ../bbpress/form-topic-tag.php:73
 msgid "Merge"
-msgstr ""
+msgstr "Fussioner"
 
 #: ../bbpress/form-topic-tag.php:62
 msgid "Merging tags together cannot be undone."
@@ -796,7 +803,7 @@ msgstr ""
 
 #: ../bbpress/form-topic-tag.php:88 ../bbpress/form-topic-tag.php:101
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: ../bbpress/form-topic-tag.php:91
 msgid "This does not delete your topics. Only the tag itself is deleted."
@@ -820,11 +827,11 @@ msgstr ""
 #: ../bbpress/form-topic.php:31
 #, php-format
 msgid "Create New Topic in &ldquo;%s&rdquo;"
-msgstr ""
+msgstr "Créer un nouveau sujet &ldquo;%s&rdquo;"
 
 #: ../bbpress/form-topic.php:31
 msgid "Create New Topic"
-msgstr ""
+msgstr "Créer un nouveau sujet"
 
 #: ../bbpress/form-topic.php:38
 msgid ""
@@ -1061,7 +1068,7 @@ msgstr ""
 
 #: ../bbpress/loop-search-reply.php:24
 msgid "In reply to: "
-msgstr ""
+msgstr "En réponse à :"
 
 #: ../bbpress/loop-search-topic.php:26
 msgid "Topic: "
@@ -1085,7 +1092,7 @@ msgstr ""
 
 #: ../bbpress/loop-single-reply.php:27
 msgid "in reply to: "
-msgstr ""
+msgstr "en réponse à :"
 
 #: ../bbpress/loop-single-topic.php:58
 #, php-format
@@ -1492,7 +1499,7 @@ msgstr ""
 
 #: ../inc/class-ipt-kb-social-widget.php:44
 msgid "Follow us on Twitter"
-msgstr ""
+msgstr "Suivez-nous sur Twitter"
 
 #: ../inc/class-ipt-kb-social-widget.php:45
 msgid "Circle us on Google Plus"
@@ -1508,7 +1515,7 @@ msgstr ""
 
 #: ../inc/class-ipt-kb-social-widget.php:48
 msgid "Follow us on Pinterest"
-msgstr ""
+msgstr "Suivez-nous sur Pinterest"
 
 #: ../inc/class-ipt-kb-social-widget.php:49
 msgid "Follow us on envato marketplaces"
@@ -1580,7 +1587,7 @@ msgstr ""
 #: ../inc/template-tags.php:129
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
-msgstr "%s <span class=\"says\">dit:</span>"
+msgstr "%s <span class=\"says\">a dit:</span>"
 
 #: ../inc/template-tags.php:132
 msgid "Your comment is awaiting moderation."
@@ -1588,13 +1595,13 @@ msgstr "Votre commentaire est en attente de validation"
 
 #: ../inc/template-tags.php:150
 msgid "<i class=\"glyphicon ipt-icon-reply\"></i>&nbsp;&nbsp;Reply"
-msgstr ""
+msgstr "<i class=\"glyphicon ipt-icon-reply\"></i>&nbsp;&nbsp;Répondre"
 
 #: ../inc/template-tags.php:157
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
-msgstr ""
+msgstr "le %1$s à %2$s"
 
 #: ../inc/template-tags.php:238
 #, php-format
@@ -1602,6 +1609,8 @@ msgid ""
 "<span class=\"posted-on\"><i class=\"glyphicon glyphicon-calendar\"></i> "
 "Posted on %1$s</span><span class=\"byline\"> by %2$s</span>"
 msgstr ""
+"<span class=\"posted-on\"><i class=\"glyphicon glyphicon-calendar\"></i> "
+"Créé le %1$s</span><span class=\"byline\"> par %2$s</span>"
 
 #: ../inc/template-tags.php:294
 msgid "This article was helpful"
@@ -1628,7 +1637,7 @@ msgstr ""
 
 #: ../inc/template-tags.php:449
 msgid "Error 404 - Not found"
-msgstr ""
+msgstr "Erreur 404 - Page non trouvé"
 
 #: ../inc/template-tags.php:453
 msgid "Archive"
@@ -1641,7 +1650,7 @@ msgstr ""
 #: ../inc/template-tags.php:497
 #, php-format
 msgid "Required fields are marked %s"
-msgstr ""
+msgstr "Les champs obligatoires sont indiqués par un %s"
 
 #: ../inc/template-tags.php:500
 msgctxt "noun"
@@ -1659,10 +1668,12 @@ msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
+"Connecté en tant que <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"se "
+"déconnecter de ce compte\">Se déconnecter ?</a>"
 
 #: ../inc/template-tags.php:503
 msgid "Your email address will not be published."
-msgstr ""
+msgstr "Votre adresse email ne sera pas affiché"
 
 #: ../inc/template-tags.php:504
 #, php-format
@@ -1673,49 +1684,51 @@ msgstr ""
 
 #: ../inc/template-tags.php:507
 msgid "Leave a Reply"
-msgstr ""
+msgstr "Répondre à l'article"
 
 #: ../inc/template-tags.php:508
 #, php-format
 msgid "Leave a Reply to %s"
-msgstr ""
+msgstr "Répondre à %s"
 
 #: ../inc/template-tags.php:509
 msgid "Cancel reply"
-msgstr ""
+msgstr "Annuler la réponse"
 
 #: ../inc/template-tags.php:510
 msgid "Post Comment"
-msgstr ""
+msgstr "Envoyer"
 
 #: ../inc/template-tags.php:638
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: ../inc/template-tags.php:642
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: ../inc/template-tags.php:646
 msgid "Google+"
-msgstr ""
+msgstr "Google+"
 
 #: ../inc/template-tags.php:663
 #, php-format
 msgid "%1$s has written <a href=\"%2$s\">%3$s</a> %4$s"
-msgstr ""
+msgstr "%1$s a écrit <a href=\"%2$s\">%3$s</a> %4$s"
 
 #: ../inc/template-tags.php:663
 msgid "article"
 msgid_plural "articles"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "article"
+msgstr[1] "articles"
 
 #: ../inc/template-tags.php:696
 msgid ""
 "This content is password protected. To view it please enter your password "
 "below:"
 msgstr ""
+"Ce contenu est protégé par mot de passe. Pour le lire vous devez indiquer "
+"votre mot de passe ci dessous :"
 
 #: ../inc/template-tags.php:698
 msgid "Password:"
