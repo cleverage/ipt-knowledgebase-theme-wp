@@ -86,7 +86,7 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 
 		$sub_categories = get_categories( array(
 			'taxonomy' => 'category',
-			'parent' => $parent_cat->term_id,
+			'child_of' => $parent_cat->term_id,
 			'hide_empty' => 0,
 			'number' => '',
 		) );
