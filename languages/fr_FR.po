@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Knowledge Base Theme for Clever Planet\n"
 "POT-Creation-Date: 2013-11-05 21:39+0530\n"
-"PO-Revision-Date: 2014-06-04 12:17+0100\n"
+"PO-Revision-Date: 2014-06-04 16:21+0100\n"
 "Last-Translator: Aurélien Masfrand <amasfrand@clever-age.com>\n"
 "Language-Team: ipanelthemes.com <ipanelthemes@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -145,7 +145,7 @@ msgid ""
 "Bookmark the <i class=\"glyphicon glyphicon-bookmark\"></i>&nbsp;&nbsp;<a "
 "href=\"%3$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
-"Bookmarkez la page avec son <i class=\"glyphicon glyphicon-bookmark\"></"
+"Bookmarker la page avec son <i class=\"glyphicon glyphicon-bookmark\"></"
 "i>&nbsp;&nbsp;<a href=\"%3$s\" rel=\"bookmark\">lien permanent</a>."
 
 #: ../content-single.php:45
@@ -158,7 +158,7 @@ msgid ""
 msgstr ""
 "Article disponible dans la catégorie <i class=\"glyphicon glyphicon-folder-"
 "open\"></i>&nbsp;&nbsp;%1$s avec les tags <i class=\"glyphicon glyphicon-tags"
-"\"></i>&nbsp;&nbsp;%2$s. <br />Bookmarkez la page avec son <i class="
+"\"></i>&nbsp;&nbsp;%2$s. <br />Bookmarker la page avec son <i class="
 "\"glyphicon glyphicon-bookmark\"></i>&nbsp;&nbsp;<a href=\"%3$s\" rel="
 "\"bookmark\">lien permanent</a>."
 
@@ -170,7 +170,7 @@ msgid ""
 "bookmark\"></i>&nbsp;&nbsp;<a href=\"%3$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 "Article disponible dans la catégorie <i class=\"glyphicon glyphicon-folder-"
-"open\"></i>&nbsp;&nbsp;%1$s. <br />Bookmarkez la page avec son <i class="
+"open\"></i>&nbsp;&nbsp;%1$s. <br />Bookmarker la page avec son <i class="
 "\"glyphicon glyphicon-bookmark\"></i>&nbsp;&nbsp;<a href=\"%3$s\" rel="
 "\"bookmark\">lien permanent</a>."
 
@@ -1614,7 +1614,7 @@ msgstr ""
 
 #: ../inc/template-tags.php:294
 msgid "This article was helpful"
-msgstr "Cet article m'aidé"
+msgstr "Cet article m'a aidé"
 
 #: ../inc/template-tags.php:301 ../inc/template-tags.php:311
 #, php-format
@@ -1684,7 +1684,7 @@ msgstr ""
 
 #: ../inc/template-tags.php:507
 msgid "Leave a Reply"
-msgstr "Répondre à l'article"
+msgstr "Réagir sur cet article"
 
 #: ../inc/template-tags.php:508
 #, php-format
