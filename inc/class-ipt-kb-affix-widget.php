@@ -86,7 +86,7 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 
 		$sub_categories = get_categories( array(
 			'taxonomy' => 'category',
-			'child_of' => $parent_cat->term_id,
+			'parent' => $parent_cat->term_id,
 			'hide_empty' => 0,
 			'number' => '',
 		) );
@@ -135,7 +135,7 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 	<?php else : ?>
 		<?php // Loop through all subcategories ?>
 		<?php foreach ( $sub_categories as $scat ) : ?>
-		<?php $this->print_cat( $scat ); ?>
+		<?php $this->print_cat( $scat); ?>
 		<?php endforeach; ?>
 	<?php endif; ?>
 </div>
@@ -182,7 +182,8 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 		<?php
 	}
 
-	protected function print_cat( $cat ) {
+	protected function print_cat( $cat, $sep_mul = 0 ) {
+		$separator = $this->get_separator_string( $sep_mul );
 		$sterm_meta = get_option( 'ipt_kb_category_meta_' . $cat->term_id, array() );
 		$btn_class = '';
 
@@ -194,26 +195,28 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 		}
 		?>
 <?php if ( $do_posts ) : ?>
-<div class="list-group-item <?php echo $btn_class; ?>">
-<a href="#ipt-kb-affix-active-post" title="<?php esc_attr_e( 'Click to show/hide articles under this category.', 'ipt_kb' ); ?>" class="bstooltip accordion-toggle pull-right btn btn-default btn-xs text-center ipt-kb-sub-cat-toggle" data-toggle="collapse">
-	<i class="glyphicon ipt-icon-enter"></i>
-</a>
-<?php if ( isset( $sterm_meta['icon_class'] ) && '' != $sterm_meta['icon_class'] ) : ?>
-<i class="glyphicon <?php echo esc_attr( $sterm_meta['icon_class'] ); ?>"></i>
+	<div class="list-group-item <?php echo $btn_class; ?>">
+	<a href="#ipt-kb-affix-active-post" title="<?php esc_attr_e( 'Click to show/hide articles under this category.', 'ipt_kb' ); ?>" class="bstooltip accordion-toggle pull-right btn btn-default btn-xs text-center ipt-kb-sub-cat-toggle" data-toggle="collapse">
+		<i class="glyphicon ipt-icon-enter"></i>
+	</a>
+	<?php echo $separator ?>
+	<?php if ( isset( $sterm_meta['icon_class'] ) && '' != $sterm_meta['icon_class'] ) : ?>
+		<i class="glyphicon <?php echo esc_attr( $sterm_meta['icon_class'] ); ?>"></i>
+	<?php else : ?>
+		<i class="glyphicon ipt-icon-books"></i>
+	<?php endif; ?>
+	<?php echo $cat->name; ?>
+	</div>
 <?php else : ?>
-<i class="glyphicon ipt-icon-books"></i>
-<?php endif; ?>
-<?php echo $cat->name; ?>
-</div>
-<?php else : ?>
-<a href="<?php echo get_category_link( $cat ); ?>" class="list-group-item <?php echo $btn_class; ?>">
-<?php if ( isset( $sterm_meta['icon_class'] ) && '' != $sterm_meta['icon_class'] ) : ?>
-<i class="glyphicon <?php echo esc_attr( $sterm_meta['icon_class'] ); ?>"></i>
-<?php else : ?>
-<i class="glyphicon ipt-icon-books"></i>
-<?php endif; ?>
-<?php echo $cat->name; ?>
-</a>
+	<a href="<?php echo get_category_link( $cat ); ?>" class="list-group-item <?php echo $btn_class; ?>">
+	<?php echo $separator;?>
+	<?php if ( isset( $sterm_meta['icon_class'] ) && '' != $sterm_meta['icon_class'] ) : ?>
+		<i class="glyphicon <?php echo esc_attr( $sterm_meta['icon_class'] ); ?>"></i>
+	<?php else : ?>
+		<i class="glyphicon ipt-icon-books"></i>
+	<?php endif; ?>
+	<?php echo $cat->name; ?>
+	</a>
 <?php endif; ?>
 		<?php
 		if ( $do_posts ) {
@@ -222,22 +225,46 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 				$collapse_state = '';
 			}
 			echo '<div id="ipt-kb-affix-active-post" class="collapse' . $collapse_state . '">';
-			$this->print_post_for_cat( $cat->term_id, 1 );
+
+			$this->print_post_for_cat( $cat->term_id, $sep_mul+1 );
 			echo '</div>';
+		}
+
+		$sub_categories = get_categories( array(
+			'taxonomy' => 'category',
+			'parent' => $cat->term_id,
+			'hide_empty' => 0,
+			'number' => '',
+		) );
+
+		if ( !empty( $sub_categories ) ) {
+			foreach ( $sub_categories as $scat ) {
+				$this->print_cat( $scat, $sep_mul+1);
+			}
 		}
 	}
 
-	protected function print_post_for_cat( $cat_id, $sep_mul = 0 ) {
+	protected function print_post_for_cat( $cat_id, $sep_mul = 0, $sep = '' ) {
+		global $wpdb;
 		$separator = $this->get_separator_string( $sep_mul );
 		if ( is_single() ) {
 			global $post;
 			$o_post_id = $post->ID;
 		}
 
-		$custom_posts = new WP_Query( array(
-			'cat' => $cat_id,
-			'posts_per_page' => -1,
-		) );
+		//we only want the direct post from the current cat
+		$post_ids = $wpdb->get_row(
+			sprintf(
+				'SELECT object_id FROM %sterm_relationships WHERE term_taxonomy_id = %d',
+				$wpdb->prefix,
+				$cat_id
+			),
+			ARRAY_N
+		);
+
+		$custom_posts = new WP_Query(
+			array('post__in' => $post_ids)
+		);
 
 		if ( $custom_posts->have_posts() ) {
 			while ( $custom_posts->have_posts() ) {
