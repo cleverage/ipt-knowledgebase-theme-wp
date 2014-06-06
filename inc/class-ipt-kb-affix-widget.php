@@ -253,17 +253,22 @@ class IPT_KB_Affix_Widget extends WP_Widget {
 		}
 
 		//we only want the direct post from the current cat
-		$post_ids = $wpdb->get_row(
+		$results = $wpdb->get_results(
 			sprintf(
 				'SELECT object_id FROM %sterm_relationships WHERE term_taxonomy_id = %d',
 				$wpdb->prefix,
 				$cat_id
 			),
-			ARRAY_N
+			ARRAY_A
 		);
 
+		$postIds = [];
+		foreach($results as $result) {
+			$postIds[] = $result['object_id'];
+		}
+		
 		$custom_posts = new WP_Query(
-			array('post__in' => $post_ids)
+			array('post__in' => $postIds)
 		);
 
 		if ( $custom_posts->have_posts() ) {
