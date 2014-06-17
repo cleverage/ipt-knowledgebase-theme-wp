@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: KB Page recent article first
+Template Name: Knowledge Base Page
 */
 /**
  * Page Template for the Knowledge Base Page
@@ -22,79 +22,80 @@ $main_categories = get_categories( array(
 		<main id="main" class="site-main" role="main">
 			<?php get_search_form(); ?>
 
-			<div class="row kb-home-cat-row">
 
-				<div class="row kb-home-panels">
-					<?php
-					// Remove the filter from the Posts Order By Plugin
-					if ( function_exists( 'CPTOrderPosts' ) ) {
-						remove_filter( 'posts_orderby', 'CPTOrderPosts', 99, 2 );
-					}
-					// Recent posts
-					$recent_posts = new WP_Query( array(
-						'post_type' => 'post',
-						'posts_per_page' => get_option( 'posts_per_page', 5 ),
-						'order' => 'DESC',
-						'orderby' => 'date',
-					) );
-					?>
-					<div class="col-md-6">
-						<div class="panel panel-info">
-							<div class="panel-heading">
-								<h3 class="panel-title"><i class="glyphicon glyphicon-calendar"></i>&nbsp;&nbsp;<?php _e( 'Recent articles', 'ipt_kb' ); ?></h3>
-							</div>
-							<div class="panel-body">
-								<div class="list-group">
-									<?php if ( $recent_posts->have_posts() ) : ?>
-										<?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
-										<?php get_template_part( 'category-templates/content', 'date' ); ?>
-										<?php endwhile; ?>
-									<?php else : ?>
-										<?php get_template_part( 'category-templates/no-result' ); ?>
-									<?php endif; ?>
-								</div>
-							</div>
+			<div class="row kb-home-panels">
+				<?php
+				// Remove the filter from the Posts Order By Plugin
+				if ( function_exists( 'CPTOrderPosts' ) ) {
+					remove_filter( 'posts_orderby', 'CPTOrderPosts', 99, 2 );
+				}
+				// Recent posts
+				$recent_posts = new WP_Query( array(
+					'post_type' => 'post',
+					'posts_per_page' => get_option( 'posts_per_page', 5 ),
+					'order' => 'DESC',
+					'orderby' => 'date',
+				) );
+				?>
+				<div class="col-md-6">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="glyphicon glyphicon-calendar"></i>&nbsp;&nbsp;<?php _e( 'Recent articles', 'ipt_kb' ); ?></h3>
 						</div>
-					</div>
-					<?php wp_reset_query(); ?>
-
-					<?php
-					// Popular posts
-					// Prep the arguments
-					$args = array(
-						'post_type' => 'post',
-						'posts_per_page' => get_option( 'posts_per_page', 5 ),
-						'order' => 'DESC',
-						'meta_key' => 'ipt_kb_like_article',
-						'orderby' => 'meta_value_num',
-					);
-
-					// Filter it for further customizability
-					$args = apply_filters( 'ipt_kb_popular_posts_args', $args );
-
-					// Build our custom query
-					$popular_query = new WP_Query( $args );
-					?>
-					<div class="col-md-6">
-						<div class="panel panel-success">
-							<div class="panel-heading">
-								<h3 class="panel-title"><i class="glyphicon glyphicon-fire"></i>&nbsp;&nbsp;<?php _e( 'Popular articles', 'ipt_kb' ); ?></h3>
-							</div>
-							<div class="panel-body">
-								<div class="list-group">
-									<?php if ( $popular_query->have_posts() ) : ?>
-										<?php while ( $popular_query->have_posts() ) : $popular_query->the_post(); ?>
-										<?php get_template_part( 'category-templates/content', 'popular' ); ?>
-										<?php endwhile; ?>
-									<?php else : ?>
-										<?php get_template_part( 'category-templates/no-result' ); ?>
-									<?php endif; ?>
-								</div>
+						<div class="panel-body">
+							<div class="list-group">
+								<?php if ( $recent_posts->have_posts() ) : ?>
+									<?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
+									<?php get_template_part( 'category-templates/content', 'date' ); ?>
+									<?php endwhile; ?>
+								<?php else : ?>
+									<?php get_template_part( 'category-templates/no-result' ); ?>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>
 				</div>
+				<?php wp_reset_query(); ?>
 
+				<?php
+				// Popular posts
+				// Prep the arguments
+				$args = array(
+					'post_type' => 'post',
+					'posts_per_page' => get_option( 'posts_per_page', 5 ),
+					'order' => 'DESC',
+					'meta_key' => 'ipt_kb_like_article',
+					'orderby' => 'meta_value_num',
+				);
+
+				// Filter it for further customizability
+				$args = apply_filters( 'ipt_kb_popular_posts_args', $args );
+
+				// Build our custom query
+				$popular_query = new WP_Query( $args );
+				?>
+				<div class="col-md-6">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="glyphicon glyphicon-fire"></i>&nbsp;&nbsp;<?php _e( 'Popular articles', 'ipt_kb' ); ?></h3>
+						</div>
+						<div class="panel-body">
+							<div class="list-group">
+								<?php if ( $popular_query->have_posts() ) : ?>
+									<?php while ( $popular_query->have_posts() ) : $popular_query->the_post(); ?>
+									<?php get_template_part( 'category-templates/content', 'popular' ); ?>
+									<?php endwhile; ?>
+								<?php else : ?>
+									<?php get_template_part( 'category-templates/no-result' ); ?>
+								<?php endif; ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row kb-home-cat-row">
 				<?php $cat_iterator = 0; foreach ( $main_categories as $cat ) : ?>
 				<?php $term_meta = get_option( 'ipt_kb_category_meta_' . $cat->term_id, array() ); ?>
 				<?php $term_link = esc_url( get_term_link( $cat ) ); ?>
@@ -195,8 +196,6 @@ $main_categories = get_categories( array(
 				<div class="clearfix"></div>
 			</div>
 
-
-			
 
 			<?php wp_reset_query(); ?>
 			<?php
