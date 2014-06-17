@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Knowledge Base Page
+Template Name: Knowledge Base Page - Recent First
 */
 /**
  * Page Template for the Knowledge Base Page
